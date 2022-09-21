@@ -1,0 +1,197 @@
+:root {
+  --dark: #0c0c0c;
+  --dark-200: #212529;
+  --light: #f9f9f9;
+  --gray: #aeaeae;
+  --green: #04d361;
+  --red: #ff3e3e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--dark);
+  color: var(--light);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 50px;
+  margin-bottom: 65px;
+}
+
+p#logotipo {
+  font-family: 'Kalam', cursive;
+  font-size: 2.3rem;
+}
+
+input#comprar-curso {
+  background: var(--dark);
+  color: var(--light);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  padding: 21px 30px;
+  border: 2px solid var(--green);
+  border-radius: 6px;
+}
+
+input#comprar-curso:hover {
+  background: var(--green);
+  color: var(--dark-200);
+  cursor: pointer;
+}
+
+/* MAIN */
+
+section {
+  width: 600px;
+  margin: 0 auto;
+}
+
+h1 {
+  font: 48px 'Sora', sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+h3 {
+  font: 31px 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--green);
+  margin: 32px 0 105px 0;
+}
+
+article p {
+  margin: 48px 0;
+  font: 26px 'Inter', sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+article p,
+label {
+  color: var(--gray);
+}
+
+article form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+article form input {
+  color: var(--light);
+  background: var(--dark);
+  padding: 15px;
+  width: 600px;
+  height: 60px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+}
+
+article form input#btn-enviar {
+  background: var(--green);
+  width: 600px;
+  height: 60px;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+}
+
+/* FOOTER */
+
+footer {
+  height: 160px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.8rem;
+
+  background: #151515;
+  position: fixed;
+  z-index: 10;
+  max-width: 90%;
+  width: 800px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /*colocando ponto inicial do conteudo no centro dele*/
+  border: 1px solid #212529;
+  border-radius: 4px;
+  opacity: 0;
+}
+
+.modal.visivel {
+  display: initial;
+  opacity: 1;
+}
+
+.modal span#text-true {
+  color: var(--green);
+}
+
+.modal span {
+  color: var(--red);
+}
+
+.modal .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px;
+  gap: 42px;
+}
+
+.btn-fechar {
+  max-width: 90%; /*quando a tela diminiu ele diminiu*/
+  width: 600px;
+  height: 60px;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+}
+
+#btn-fechar-true {
+  background-color: var(--green);
+}
+
+#btn-fechar-false {
+  background-color: var(--red);
+}
+
+#mascara {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0;
+  pointer-events: none; /*Diz que não deve responder a eventos de mouse, ela reconhece que quero clicar no botao e não na mascara*/
+}
+
+.modal.visivel ~ #mascara {
+  opacity: 0.6;
+  pointer-events: initial;
+}
